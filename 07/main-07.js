@@ -135,6 +135,7 @@ window.addEventListener("load", function(event) {
     if (controller.left.active ) { game.world.player.moveLeft ();                               }
     if (controller.right.active) { game.world.player.moveRight();                               }
     if (controller.up.active   ) { game.world.player.jump();      controller.up.active = false; }
+    if (controller.drop.active) { game.world.player.drop(); controller.drop.active = false; }
 
     game.update();
 

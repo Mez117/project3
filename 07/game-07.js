@@ -75,7 +75,11 @@ Game.Collider = function() {
 
     switch(value) {
 
-      case  1:     this.collidePlatformTop    (object, tile_y            ); break;
+      case  1: if (this.dropping) {
+                  this.dropping = false
+                  return
+               } 
+                  this.collidePlatformTop    (object, tile_y            ); break;
       case 2: if (this.collidePlatformTop    (object, tile_y            )) return;
                if (this.collidePlatformBottom (object, tile_y + tile_size)) return;
                if (this.collidePlatformLeft   (object, tile_x            )) return;
@@ -355,6 +359,10 @@ Game.Player.prototype = {
     this.direction_x = 1;
     this.velocity_x += 0.80;
 
+  },
+
+  drop: function() {
+    this.dropping = true;
   },
 
   updateAnimation:function() {
