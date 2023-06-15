@@ -558,7 +558,7 @@ Game.World.prototype = {
       soul.updatePosition();
       soul.animate();
 
-      if (soul.collideObject(this.player)) {
+      if (soul.collideObjectCenter(this.player)) {
 
         this.souls.splice(this.souls.indexOf(soul), 1);
         this.soul_count ++;
