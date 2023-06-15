@@ -183,7 +183,7 @@ window.addEventListener("load", function(event) {
 
     game.world.setup(zone);
 
-    assets_manager.requestImage("sprite.png", (image) => {
+    assets_manager.requestImage("backgroundsprite.png", (image) => {
 
       assets_manager.tile_set_image = image;
 
