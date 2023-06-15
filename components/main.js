@@ -13,7 +13,7 @@ window.addEventListener("load", function(event) {
 
   //// CONSTANTS ////
 
-  const ZONE_PREFIX = "07/zone";
+  const ZONE_PREFIX = "components/zone";
   const ZONE_SUFFIX = ".json";
 
       /////////////////
