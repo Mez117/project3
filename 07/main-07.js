@@ -32,16 +32,16 @@ window.addEventListener("load", function(event) {
 
     requestJSON:function(url, callback) {
 
-      // let request = new XMLHttpRequest();
+      let request = new XMLHttpRequest();
 
-      // request.addEventListener("load", function(event) {
+      request.addEventListener("load", function(event) {
+        
+        callback(JSON.parse(this.responseText));
 
-      //   callback(JSON.parse(this.responseText));
+      }, { once:true });
 
-      // }, { once:true });
-
-      // request.open("GET", url);
-      // request.send();
+      request.open("GET", url);
+      request.send();
 
     },
 
