@@ -243,16 +243,16 @@ Game.MovingObject.prototype = {
 Object.assign(Game.MovingObject.prototype, Game.Object.prototype);
 Game.MovingObject.prototype.constructor = Game.MovingObject;
 
-/* The carrot class extends Game.Object and Game.Animation. */
-Game.Carrot = function(x, y) {
+/* The soul class extends Game.Object and Game.Animation. */
+Game.Soul = function(x, y) {
 
   Game.Object.call(this, x, y, 7, 14);
-  Game.Animator.call(this, Game.Carrot.prototype.frame_sets["twirl"], 15);
+  Game.Animator.call(this, Game.Soul.prototype.frame_sets["twirl"], 15);
 
   this.frame_index = Math.floor(Math.random() * 2);
 
-  /* base_x and base_y are the point around which the carrot revolves. position_x
-  and y are used to track the vector facing away from the base point to give the carrot
+  /* base_x and base_y are the point around which the soul revolves. position_x
+  and y are used to track the vector facing away from the base point to give the soul
   the floating effect. */
   this.base_x     = x;
   this.base_y     = y;
@@ -260,7 +260,7 @@ Game.Carrot = function(x, y) {
   this.position_y = this.position_x * 2;
 
 };
-Game.Carrot.prototype = {
+Game.Soul.prototype = {
 
   frame_sets: { "twirl":[12, 13] },
 
@@ -275,9 +275,9 @@ Game.Carrot.prototype = {
   }
 
 };
-Object.assign(Game.Carrot.prototype, Game.Animator.prototype);
-Object.assign(Game.Carrot.prototype, Game.Object.prototype);
-Game.Carrot.prototype.constructor = Game.Carrot;
+Object.assign(Game.Soul.prototype, Game.Animator.prototype);
+Object.assign(Game.Soul.prototype, Game.Object.prototype);
+Game.Soul.prototype.constructor = Game.Soul;
 
 Game.Grass = function(x, y) {
 
@@ -449,8 +449,8 @@ Game.World = function(friction = 0.85, gravity = 2) {
 
   this.zone_id      = "00";
 
-  this.carrots      = [];// the array of carrots in this zone;
-  this.carrot_count = 0;// the number of carrots you have.
+  this.souls      = [];// the array of souls in this zone;
+  this.soul_count = 0;// the number of souls you have.
   this.doors        = [];
   this.door         = undefined;
 
@@ -493,7 +493,7 @@ Game.World.prototype = {
 
   setup:function(zone) {
 
-    this.carrots            = new Array();
+    this.souls            = new Array();
     this.doors              = new Array();
     this.grass              = new Array();
     this.collision_map      = zone.collision_map;
@@ -502,10 +502,10 @@ Game.World.prototype = {
     this.rows               = zone.rows;
     this.zone_id            = zone.id;
 
-    for (let index = zone.carrots.length - 1; index > -1; -- index) {
+    for (let index = zone.souls.length - 1; index > -1; -- index) {
 
-      let carrot = zone.carrots[index];
-      this.carrots[index] = new Game.Carrot(carrot[0] * this.tile_set.tile_size + 10, carrot[1] * this.tile_set.tile_size - 4);
+      let soul = zone.souls[index];
+      this.souls[index] = new Game.Soul(soul[0] * this.tile_set.tile_size + 10, soul[1] * this.tile_set.tile_size - 4);
 
     }
 
@@ -551,17 +551,17 @@ Game.World.prototype = {
 
     this.collideObject(this.player);
 
-    for (let index = this.carrots.length - 1; index > -1; -- index) {
+    for (let index = this.souls.length - 1; index > -1; -- index) {
 
-      let carrot = this.carrots[index];
+      let soul = this.souls[index];
 
-      carrot.updatePosition();
-      carrot.animate();
+      soul.updatePosition();
+      soul.animate();
 
-      if (carrot.collideObject(this.player)) {
+      if (soul.collideObject(this.player)) {
 
-        this.carrots.splice(this.carrots.indexOf(carrot), 1);
-        this.carrot_count ++;
+        this.souls.splice(this.souls.indexOf(soul), 1);
+        this.soul_count ++;
 
       }
 

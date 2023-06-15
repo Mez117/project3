@@ -2,8 +2,8 @@
 
 /* Changes:
 
-  1. Added the drawing calls for drawing the grass and carrots in render.
-  2. Added a p element for showing the number of carrots collected.
+  1. Added the drawing calls for drawing the grass and souls in render.
+  2. Added a p element for showing the number of souls collected.
 
 */
 
@@ -91,16 +91,16 @@ window.addEventListener("load", function(event) {
     display.drawMap   (assets_manager.tile_set_image,
     game.world.tile_set.columns, game.world.graphical_map, game.world.columns,  game.world.tile_set.tile_size);
 
-    for (let index = game.world.carrots.length - 1; index > -1; -- index) {
+    for (let index = game.world.souls.length - 1; index > -1; -- index) {
 
-      let carrot = game.world.carrots[index];
+      let soul = game.world.souls[index];
 
-      frame = game.world.tile_set.frames[carrot.frame_value];
+      frame = game.world.tile_set.frames[soul.frame_value];
 
       display.drawObject(assets_manager.tile_set_image,
       frame.x, frame.y,
-      carrot.x + Math.floor(carrot.width * 0.5 - frame.width * 0.5) + frame.offset_x,
-      carrot.y + frame.offset_y, frame.width, frame.height);
+      soul.x + Math.floor(soul.width * 0.5 - frame.width * 0.5) + frame.offset_x,
+      soul.y + frame.offset_y, frame.width, frame.height);
 
     }
 
@@ -124,7 +124,7 @@ window.addEventListener("load", function(event) {
 
     }
 
-    p.innerHTML = "Carrots: " + game.world.carrot_count;
+    p.innerHTML = "Souls: " + game.world.soul_count;
 
     display.render();
 
@@ -169,7 +169,7 @@ window.addEventListener("load", function(event) {
 
   var p              = document.createElement("p");
   p.setAttribute("style", "color:#c07000; font-size:2.0em; position:fixed;");
-  p.innerHTML = "Carrots: 0";
+  p.innerHTML = "Souls: 0";
   document.body.appendChild(p);
 
       ////////////////////
