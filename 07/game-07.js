@@ -505,7 +505,7 @@ Game.World.prototype = {
     for (let index = zone.souls.length - 1; index > -1; -- index) {
 
       let soul = zone.souls[index];
-      this.souls[index] = new Game.Soul(soul[0] * this.tile_set.tile_size + 10, soul[1] * this.tile_set.tile_size - 4);
+      this.souls[index] = new Game.Soul(soul[0] * this.tile_set.tile_size + 16, soul[1] * this.tile_set.tile_size - 8);
 
     }
 
