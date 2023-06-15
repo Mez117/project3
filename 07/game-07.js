@@ -91,34 +91,7 @@ Game.Collider = function() {
     switch(value) {
 
       case  1:     this.collidePlatformTop    (object, tile_y            ); break;
-      case  2:     this.collidePlatformRight  (object, tile_x + tile_size); break;
-      case  3: if (this.collidePlatformTop    (object, tile_y            )) return;
-                   this.collidePlatformRight  (object, tile_x + tile_size); break;
-      case  4:     this.collidePlatformBottom (object, tile_y + tile_size); break;
-      case  5: if (this.collidePlatformTop    (object, tile_y            )) return;
-                   this.collidePlatformBottom (object, tile_y + tile_size); break;
-      case  6: if (this.collidePlatformRight  (object, tile_x + tile_size)) return;
-                   this.collidePlatformBottom (object, tile_y + tile_size); break;
-      case  7: if (this.collidePlatformTop    (object, tile_y            )) return;
-               if (this.collidePlatformBottom (object, tile_y + tile_size)) return;
-                   this.collidePlatformRight  (object, tile_x + tile_size); break;
-      case  8:     this.collidePlatformLeft   (object, tile_x            ); break;
-      case  9: if (this.collidePlatformTop    (object, tile_y            )) return;
-                   this.collidePlatformLeft   (object, tile_x            ); break;
-      case 10: if (this.collidePlatformLeft   (object, tile_x            )) return;
-                   this.collidePlatformRight  (object, tile_x + tile_size); break;
-      case 11: if (this.collidePlatformTop    (object, tile_y            )) return;
-               if (this.collidePlatformLeft   (object, tile_x            )) return;
-                   this.collidePlatformRight  (object, tile_x + tile_size); break;
-      case 12: if (this.collidePlatformBottom (object, tile_y + tile_size)) return;
-                   this.collidePlatformLeft   (object, tile_x            ); break;
-      case 13: if (this.collidePlatformTop    (object, tile_y            )) return;
-               if (this.collidePlatformBottom (object, tile_y + tile_size)) return;
-                   this.collidePlatformLeft   (object, tile_x            ); break;
-      case 14: if (this.collidePlatformBottom (object, tile_y + tile_size)) return;
-               if (this.collidePlatformLeft   (object, tile_x            )) return;
-                   this.collidePlatformRight  (object, tile_x + tile_size); break;
-      case 15: if (this.collidePlatformTop    (object, tile_y            )) return;
+      case 2: if (this.collidePlatformTop    (object, tile_y            )) return;
                if (this.collidePlatformBottom (object, tile_y + tile_size)) return;
                if (this.collidePlatformLeft   (object, tile_x            )) return;
                    this.collidePlatformRight  (object, tile_x + tile_size); break;
@@ -460,7 +433,7 @@ Game.TileSet = function(columns, tile_size) {
                  new f(289,  0, 19, 29, 0, -15), // idle-right
                  new f(249,  0, 19, 28, 0, -15), // jump-right
                  new f(160, 0, 24, 25, 0, -15), new f(112, 0, 24, 27, 0, -15), new f(60, 0, 28, 28, 0, -15), new f(160, 0, 24, 25, 0, -15), // walk-right
-                 new f(352, 32, 32, 32), new f(384, 32, 32, 32), // carrot
+                 new f(352, 32, 23, 32), new f(375, 32, 23, 32), // carrot
                  new f(0, 0, 32, 12, 0, 9), new f(0, 12, 32, 10, 0, 10), new f(0, 24, 32, 7, 0, 12) // grass
                 ];
 
