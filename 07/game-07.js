@@ -77,9 +77,10 @@ Game.Collider = function() {
 
       case  1: if (this.dropping) {
                   this.dropping = false
+                  console.log(true);
                   return
-               } 
-                  this.collidePlatformTop    (object, tile_y            ); break;
+               } else {
+                  this.collidePlatformTop    (object, tile_y            ); break;}
       case 2: if (this.collidePlatformTop    (object, tile_y            )) return;
                if (this.collidePlatformBottom (object, tile_y + tile_size)) return;
                if (this.collidePlatformLeft   (object, tile_x            )) return;
