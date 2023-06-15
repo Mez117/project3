@@ -352,7 +352,7 @@ Game.Player.prototype = {
     if (!this.jumping && this.velocity_y < 10) {
 
       this.jumping     = true;
-      this.velocity_y -= 30;
+      this.velocity_y -= 50;
 
     }
 
@@ -361,14 +361,14 @@ Game.Player.prototype = {
   moveLeft: function() {
 
     this.direction_x = -1;
-    this.velocity_x -= 0.55;
+    this.velocity_x -= 0.80;
 
   },
 
   moveRight:function(frame_set) {
 
     this.direction_x = 1;
-    this.velocity_x += 0.55;
+    this.velocity_x += 0.80;
 
   },
 
