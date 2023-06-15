@@ -108,7 +108,7 @@ window.addEventListener("load", function(event) {
 
     display.drawObject(assets_manager.tile_set_image,
     frame.x, frame.y,
-    game.world.player.x + Math.floor(game.world.player.width * 0.5 - frame.width * 0.5) + frame.offset_x,
+    game.world.player.x + Math.floor(game.world.player.width - frame.width) + frame.offset_x,
     game.world.player.y + frame.offset_y, frame.width, frame.height);
 
     for (let index = game.world.grass.length - 1; index > -1; -- index) {

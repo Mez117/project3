@@ -460,8 +460,8 @@ Game.TileSet = function(columns, tile_size) {
                  new f(289,  0, 19, 29, 0, -15), // idle-right
                  new f(249,  0, 19, 28, 0, -15), // jump-right
                  new f(160, 0, 24, 25, 0, -15), new f(112, 0, 24, 27, 0, -15), new f(60, 0, 28, 28, 0, -15), new f(160, 0, 24, 25, 0, -15), // walk-right
-                 new f(160, 32, 32, 32), new f(192, 32, 32, 32), // carrot
-                 new f(0, 0, 32, 12, 0, 7), new f(0, 12, 32, 10, 0, 10), new f(0, 24, 32, 10, 0, 9) // grass
+                 new f(352, 32, 32, 32), new f(384, 32, 32, 32), // carrot
+                 new f(0, 0, 32, 12, 0, 9), new f(0, 12, 32, 10, 0, 10), new f(0, 24, 32, 7, 0, 12) // grass
                 ];
 
 };
@@ -538,7 +538,7 @@ Game.World.prototype = {
     for (let index = zone.carrots.length - 1; index > -1; -- index) {
 
       let carrot = zone.carrots[index];
-      this.carrots[index] = new Game.Carrot(carrot[0] * this.tile_set.tile_size + 5, carrot[1] * this.tile_set.tile_size - 2);
+      this.carrots[index] = new Game.Carrot(carrot[0] * this.tile_set.tile_size + 10, carrot[1] * this.tile_set.tile_size - 4);
 
     }
 
