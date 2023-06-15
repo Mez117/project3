@@ -427,8 +427,8 @@ Game.TileSet = function(columns, tile_size) {
                  new f(289,  0, 19, 29, 0, -15), // idle-right
                  new f(249,  0, 19, 28, 0, -15), // jump-right
                  new f(160, 0, 24, 25, 0, -15), new f(112, 0, 24, 27, 0, -15), new f(60, 0, 28, 28, 0, -15), new f(160, 0, 24, 25, 0, -15), // walk-right
-                 new f(352, 32, 23, 32), new f(375, 32, 23, 32), // carrot
-                 new f(0, 0, 32, 12, 0, 9), new f(0, 12, 32, 10, 0, 10), new f(0, 24, 32, 7, 0, 15) // grass
+                 new f(352, 32, 23, 32), new f(375, 32, 23, 32), // soul
+                 new f(0, 0, 32, 12, 0, 12), new f(0, 12, 32, 10, 0, 12), new f(0, 24, 32, 7, 0, 15) // grass
                 ];
 
 };
