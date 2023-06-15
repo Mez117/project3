@@ -477,7 +477,7 @@ Game.World = function(friction = 0.85, gravity = 2) {
   this.columns      = 12;
   this.rows         = 9;
 
-  this.tile_set     = new Game.TileSet(8, 16);
+  this.tile_set     = new Game.TileSet(16, 32);
   this.player       = new Game.Player(32, 76);
 
   this.zone_id      = "00";
