@@ -21,27 +21,6 @@
 
     <canvas></canvas>
 
-    <!-- Since Rabbit Trap is a multi-part series and I didn't feel like writing
-    html and css for every single part, I decided to dynamically add the appropriate
-    js file containing the game logic for each part based on url parameters. -->
-    <!-- <script type = "text/javascript">
-
-      let part = String(window.location).split("?")[1];
-
-      /* Added on 03/09/2018 to allow reusing scripts from previous parts. */
-      let parts = ["components/controller.js", "components/display.js", "components/engine.js", "components/game.js", "components/main.js"]
-
-      for (let index = 0; index < parts.length; index ++) {
-
-        let script = document.createElement("script");
-        script.setAttribute("type", "text/javascript");
-        script.setAttribute("src", parts[index]);
-        document.head.appendChild(script);
-
-      }
-
-    </script> -->
-
   </body>
 
 </html>
