@@ -46,3 +46,4 @@ Controller.ButtonInput.prototype = {
   }
 
 };
+//
