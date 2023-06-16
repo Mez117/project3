@@ -1,24 +1,9 @@
-// Frank Poth 04/18/2018
-
-/* Changes:
-
-  1. Added the drawing calls for drawing the grass and souls in render.
-  2. Added a p element for showing the number of souls collected.
-
-*/
-
 window.addEventListener("load", function(event) {
 
   "use strict";
 
-  //// CONSTANTS ////
-
   const ZONE_PREFIX = "components/zone";
   const ZONE_SUFFIX = ".json";
-
-      /////////////////
-    //// CLASSES ////
-  /////////////////
 
   const AssetsManager = function() {
 
@@ -60,10 +45,6 @@ window.addEventListener("load", function(event) {
     },
 
   };
-
-      ///////////////////
-    //// FUNCTIONS ////
-  ///////////////////
 
   var keyDownUp = function(event) {
 
@@ -157,10 +138,6 @@ window.addEventListener("load", function(event) {
 
   };
 
-      /////////////////
-    //// OBJECTS ////
-  /////////////////
-
   var assets_manager = new AssetsManager();
   var controller     = new Controller();
   var display        = new Display(document.querySelector("canvas"));
@@ -171,10 +148,6 @@ window.addEventListener("load", function(event) {
   p.setAttribute("style", "color:#c07000; font-size:2.0em; position:fixed;");
   p.innerHTML = "Souls: 0";
   document.body.appendChild(p);
-
-      ////////////////////
-    //// INITIALIZE ////
-  ////////////////////
 
   display.buffer.canvas.height = game.world.height;
   display.buffer.canvas.width  = game.world.width;

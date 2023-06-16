@@ -11,7 +11,6 @@ const Game = function() {
 };
 Game.prototype = { constructor : Game };
 
-// Made the default animation type "loop":
 Game.Animator = function(frame_set, delay, mode = "loop") {
 
  this.count       = 0;
@@ -70,7 +69,6 @@ Game.Animator.prototype = {
 
 Game.Collider = function() {
 
-  /* I changed this so all the checks happen in y first order. */
   this.collide = function(value, object, tile_x, tile_y, tile_size) {
 
     switch(value) {
@@ -146,7 +144,6 @@ Game.Collider.prototype = {
 
  };
 
-// Added default values of 0 for offset_x and offset_y
 Game.Frame = function(x, y, width, height, offset_x = 0, offset_y = 0) {
 
   this.x        = x;
@@ -171,7 +168,6 @@ Game.Object.prototype = {
 
   constructor:Game.Object,
 
-  /* Now does rectangular collision detection. */
   collideObject:function(object) {
 
     if (this.getRight()  < object.getLeft()  ||
@@ -183,7 +179,6 @@ Game.Object.prototype = {
 
   },
 
-  /* Does rectangular collision detection with the center of the object. */
   collideObjectCenter:function(object) {
 
     let center_x = object.getCenterX();
@@ -243,7 +238,6 @@ Game.MovingObject.prototype = {
 Object.assign(Game.MovingObject.prototype, Game.Object.prototype);
 Game.MovingObject.prototype.constructor = Game.MovingObject;
 
-/* The soul class extends Game.Object and Game.Animation. */
 Game.Soul = function(x, y) {
 
   Game.Object.call(this, x, y, 7, 14);
@@ -338,8 +332,7 @@ Game.Player.prototype = {
 
   jump: function() {
 
-    /* Made it so you can only jump if you aren't falling faster than 10px per frame. */
-    if (!this.jumping && this.velocity_y < 10) {
+    if (!this.jumping && this.velocity_y < 1) {
 
       this.jumping     = true;
       this.velocity_y -= 50;
@@ -397,7 +390,6 @@ Game.Player.prototype = {
     this.velocity_y += gravity;
     this.velocity_x *= friction;
 
-    /* Made it so that velocity cannot exceed velocity_max */
     if (Math.abs(this.velocity_x) > this.velocity_max)
     this.velocity_x = this.velocity_max * Math.sign(this.velocity_x);
 
@@ -464,9 +456,6 @@ Game.World.prototype = {
 
   collideObject:function(object) {
 
-    /* I got rid of the world boundary collision. Now it's up to the tiles to keep
-    the player from falling out of the world. */
-
     var bottom, left, right, top, value;
 
     top    = Math.floor(object.getTop()    / this.tile_set.tile_size);
@@ -505,7 +494,7 @@ Game.World.prototype = {
     for (let index = zone.souls.length - 1; index > -1; -- index) {
 
       let soul = zone.souls[index];
-      this.souls[index] = new Game.Soul(soul[0] * this.tile_set.tile_size + 16, soul[1] * this.tile_set.tile_size - 8);
+      this.souls[index] = new Game.Soul(soul[0] * this.tile_set.tile_size, soul[1] * this.tile_set.tile_size);
 
     }
 
@@ -528,7 +517,7 @@ Game.World.prototype = {
       if (this.door.destination_x != -1) {
 
         this.player.setCenterX   (this.door.destination_x);
-        this.player.setOldCenterX(this.door.destination_x);// It's important to reset the old position as well.
+        this.player.setOldCenterX(this.door.destination_x);
 
       }
 
@@ -539,7 +528,7 @@ Game.World.prototype = {
 
       }
 
-      this.door = undefined;// Make sure to reset this.door so we don't trigger a zone load.
+      this.door = undefined;
 
     }
 
