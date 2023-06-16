@@ -419,7 +419,7 @@ Game.TileSet = function(columns, tile_size) {
                  new f(289,  0, 19, 29, 0, -15), // idle-right
                  new f(249,  0, 19, 28, 0, -15), // jump-right
                  new f(160, 0, 24, 25, 0, -15), new f(112, 0, 24, 27, 0, -15), new f(60, 0, 28, 28, 0, -15), new f(160, 0, 24, 25, 0, -15), // walk-right
-                 new f(352, 32, 23, 32, 0, 10), new f(375, 32, 23, 32, 0, 10), // soul
+                 new f(352, 32, 23, 32, 0, 5), new f(375, 32, 23, 32, 0, 5), // soul
                  new f(0, 0, 32, 12, 0, 12), new f(0, 12, 32, 10, 0, 12), new f(0, 24, 32, 7, 0, 15) // grass
                 ];
 
@@ -547,7 +547,7 @@ Game.World.prototype = {
       soul.updatePosition();
       soul.animate();
 
-      if (soul.collideObjectCenter(this.player)) {
+      if (soul.collideObject(this.player)) {
 
         this.souls.splice(this.souls.indexOf(soul), 1);
         this.soul_count ++;
