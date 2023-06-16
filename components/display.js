@@ -17,7 +17,7 @@ const Display = function(canvas) {
 
     }
 
-  };
+  };//
 
   this.drawObject = function(image, source_x, source_y, destination_x, destination_y, width, height) {
 
