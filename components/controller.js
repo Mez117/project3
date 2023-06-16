@@ -1,8 +1,8 @@
 const Controller = function() {
 
-  this.left  = new Controller.ButtonInput();
+  this.left = new Controller.ButtonInput();
   this.right = new Controller.ButtonInput();
-  this.up    = new Controller.ButtonInput();
+  this.up = new Controller.ButtonInput();
   this.drop = new Controller.ButtonInput();
 
   this.keyDownUp = function(type, key_code) {

@@ -16,9 +16,12 @@ body {
 
 }
 
-/* 04/07/2018 */
-
 canvas { 
   image-rendering:pixelated; 
   background-color: darkgray;
+}
+
+p {
+  font-family:"Courier New", Courier, monospace;
+  color: whitesmoke;
 }

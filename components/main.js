@@ -60,7 +60,7 @@ window.addEventListener("load", function(event) {
     var rectangle = display.context.canvas.getBoundingClientRect();
 
     p.style.left = rectangle.left + "px";
-    p.style.top  = rectangle.top + "px";
+    p.style.top = rectangle.top + "px";
     p.style.fontSize = game.world.tile_set.tile_size * rectangle.height / game.world.height + "px";
 
   };
@@ -139,12 +139,12 @@ window.addEventListener("load", function(event) {
   };
 
   var assets_manager = new AssetsManager();
-  var controller     = new Controller();
-  var display        = new Display(document.querySelector("canvas"));
-  var game           = new Game();
-  var engine         = new Engine(1000/30, render, update);
+  var controller = new Controller();
+  var display = new Display(document.querySelector("canvas"));
+  var game = new Game();
+  var engine = new Engine(1000/30, render, update);
 
-  var p              = document.createElement("p");
+  var p = document.createElement("p");
   p.setAttribute("style", "color:#c07000; font-size:2.0em; position:fixed;");
   p.innerHTML = "Souls: 0";
   document.body.appendChild(p);
